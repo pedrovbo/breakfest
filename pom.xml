@@ -51,6 +51,8 @@
 			<artifactId>springfox-bean-validators</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -60,7 +62,7 @@
 
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 
