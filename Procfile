@@ -1,1 +1,1 @@
-web: java -jar target/Breakfest1Application.jar
+web: java -jar target/breakfest-1.jar
