@@ -1,1 +1,1 @@
-web: java -jar target/breakfest-10.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar target/breakfest-1.jar
