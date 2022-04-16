@@ -29,10 +29,10 @@ public class ColaboradorOpcaoCafeManhaController {
 	@Autowired
 	private OpcaoCafeManhaService opcaoCafeManhaService;
 
-	@RequestMapping(value = "/escolherCafeManha/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 
 	@ResponseBody
-	public ResponseEntity<Object> escolherCafeManha(@RequestBody List<OpcaoCafeManha> opcaoCafeManha,
+	public ResponseEntity<Object> save(@RequestBody List<OpcaoCafeManha> opcaoCafeManha,
 
 			@PathVariable int id) {
 		if (colaboradorService.isExisteId(id)) {
@@ -48,9 +48,9 @@ public class ColaboradorOpcaoCafeManhaController {
 
 	}
 
-	@RequestMapping(value = "/colaborador/opcao_cafe_manha/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<Object> getAllCafeManhaByColaboradorId(int id) {
+	public ResponseEntity<Object> getAll(int id) {
 		if (colaboradorService.isExisteId(id)) {
 			List<OpcaoCafeManha> resultado = opcaoCafeManhaService.getAllCafeManhaByColaboradorId(id);
 			return ResponseEntity.status(HttpStatus.OK).body(resultado);

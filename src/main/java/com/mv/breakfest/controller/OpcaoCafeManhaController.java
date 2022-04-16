@@ -25,7 +25,7 @@ public class OpcaoCafeManhaController {
 	@Autowired
 	private OpcaoCafeManhaService opcaoCafeManhaService;
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Object> save(@RequestBody OpcaoCafeManha opcaoCafeManha) {
 		if (opcaoCafeManhaService.isExisteItemCafeManha(opcaoCafeManha.getItem())) {
@@ -37,9 +37,9 @@ public class OpcaoCafeManhaController {
 
 	}
 
-	@RequestMapping(value = "/opcoesCafeManha", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<List<OpcaoCafeManha>> getOpcoesCafeManha() {
+	public ResponseEntity<List<OpcaoCafeManha>> getAll() {
 		List<OpcaoCafeManha> resultado = opcaoCafeManhaService.getOpcoesCafeManha();
 		if (resultado.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resultado);
@@ -59,7 +59,7 @@ public class OpcaoCafeManhaController {
 		}
 	}
 
-	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Object> update(@RequestBody OpcaoCafeManha opcaoCafeManha,
 			@PathVariable(value = "id") int id) {
@@ -74,7 +74,7 @@ public class OpcaoCafeManhaController {
 		}
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public ResponseEntity<Object> delete(@PathVariable(value = "id") int id) {
 		if(!(opcaoCafeManhaService.isExisteId(id))) {

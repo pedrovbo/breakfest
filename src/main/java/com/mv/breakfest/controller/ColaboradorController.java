@@ -26,7 +26,7 @@ public class ColaboradorController {
 	@Autowired
 	private ColaboradorService colaboradorService;
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Object> save(@RequestBody Colaborador colaborador) {
 
@@ -39,7 +39,7 @@ public class ColaboradorController {
 
 	}
 
-	@RequestMapping(value = "/colaboradores", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Colaborador>> getAll() {
 		List<Colaborador> resultado = colaboradorService.getColaboradores();
@@ -65,7 +65,7 @@ public class ColaboradorController {
 
 	}
 
-	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Object> update(@RequestBody Colaborador colaborador, @PathVariable(value = "id") int id) {
 
@@ -81,7 +81,7 @@ public class ColaboradorController {
 
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public ResponseEntity<Object> delete(@PathVariable(value = "id") int id) {
 		if (!(colaboradorService.isExisteId(id))) {			
