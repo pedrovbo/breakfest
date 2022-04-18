@@ -3,33 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Garamond", Helvetica, Arial, sans-serif;
+  
 }
 
-h1{
-  text-align: center;
-}
-
-h3{
-  text-align: left;
-  padding: 3% 10% 1% 10%;
-
-}
-
-body {
-  background-color: antiquewhite;
+body {  
   color: rgb(80, 46, 46);
   padding: 2rem;
-}
-
-table{
-  text-align: center;
-}
-
-#table-container{
-  padding: 0% 10% 0% 10%;
-}
-
-.table-titles{
-  font-weight: bold;
-  font-size: larger;  
 }
