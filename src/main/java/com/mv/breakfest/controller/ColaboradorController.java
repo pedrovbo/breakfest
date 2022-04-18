@@ -39,6 +39,7 @@ public class ColaboradorController {
 
 	}
 
+	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Colaborador>> getAll() {

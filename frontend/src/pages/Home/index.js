@@ -1,27 +1,19 @@
 import React from "react";
 import { Container, ColaboradorRow } from "./styles";
+import { useState, useEffect } from "react";
 
 function Home() {
-  const colaboradores = [
-    {
-      id: 1,
-      nome: "João",
-      cpf: "123456789",
-      opcaoCafeManha: "Café",
-    },
-    {
-      id: 2,
-      nome: "Gordon",
-      cpf: "653452313",
-      opcaoCafeManha: "Cuscuz",
-    },
-    {
-      id: 3,
-      nome: "Paula",
-      cpf: "5434222",
-      opcaoCafeManha: "Bolo",
-    }
-  ];
+  /* const colaboradores = [
+    
+  ]; */
+
+  const [colaboradores, setColaboradores] = useState([]) 
+
+  useEffect(() => {
+    fetch('https://breakfest.herokuapp.com/colaborador')
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }, [])
 
   return (
     <Container>
@@ -31,10 +23,10 @@ function Home() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <td class="table-titles"> Id</td>
-              <td class="table-titles"> Nome</td>
-              <td class="table-titles"> CPF</td>
-              <td class="table-titles"> Opção Café da Manhã</td>
+              <td > Id</td>
+              <td > Nome</td>
+              <td > CPF</td>
+              <td > Opção Café da Manhã</td>
             </tr>
           </thead>
           <tbody>
