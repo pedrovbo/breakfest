@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mv.breakfest.entity.Colaborador;
 import com.mv.breakfest.service.ColaboradorService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/colaborador")
 public class ColaboradorController {
@@ -24,7 +26,7 @@ public class ColaboradorController {
 	@Autowired
 	private ColaboradorService colaboradorService;
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Object> save(@RequestBody Colaborador colaborador) {
 
@@ -37,7 +39,7 @@ public class ColaboradorController {
 
 	}
 
-	@RequestMapping(value = "/colaboradores", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Colaborador>> getAll() {
 		List<Colaborador> resultado = colaboradorService.getColaboradores();
@@ -63,7 +65,7 @@ public class ColaboradorController {
 
 	}
 
-	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Object> update(@RequestBody Colaborador colaborador, @PathVariable(value = "id") int id) {
 
@@ -79,7 +81,7 @@ public class ColaboradorController {
 
 	}
 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public ResponseEntity<Object> delete(@PathVariable(value = "id") int id) {
 		if (!(colaboradorService.isExisteId(id))) {			
