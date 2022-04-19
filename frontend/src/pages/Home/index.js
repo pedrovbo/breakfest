@@ -7,12 +7,13 @@ import {
   AdicionarColaboradorButton,
   AdicionarOpcaoCafeManhaButton,
 } from "../../components/buttonAdicionar";
+import { TableTitles } from "../../components/tableTitle";
 
 function Home() {
   const [colaboradores, setColaboradores] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/colaborador")
+    fetch("https://breakfest.herokuapp.com/colaborador")
       .then((response) => response.json())
       .then((data) => setColaboradores(data));
   }, []);
@@ -25,10 +26,10 @@ function Home() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <td> Id</td>
-              <td> Nome</td>
-              <td> CPF</td>
-              <td> Opção Café da Manhã</td>
+              <TableTitles> Id</TableTitles>
+              <TableTitles> Nome</TableTitles>
+              <TableTitles> CPF</TableTitles>
+              <TableTitles> Opção Café da Manhã</TableTitles>
             </tr>
           </thead>
           <tbody>
