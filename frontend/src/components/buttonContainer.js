@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonContainer = styled.td`
- width: fit-content;
+ width: 10%;
 
 `
 
