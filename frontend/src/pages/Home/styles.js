@@ -26,9 +26,9 @@ export const Container = styled.div`
 `
 
 export const ColaboradorRow = styled.tr`
-  transition: all 0.3s;
-
-  :hover {
-    transform: scale(1.02);
-  }
+  
+`
+export const AddButtonsContainer = styled.div`
+  flex-direction: column;
+  margin: 2%;
 `

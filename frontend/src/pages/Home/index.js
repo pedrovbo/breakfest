@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, ColaboradorRow } from "./styles";
+import { Container, ColaboradorRow, AddButtonsContainer } from "./styles";
 import { RemoveButton } from "../../components/buttonRemover";
 import { useState, useEffect } from "react";
 import { EditarButton } from "../../components/buttonEditar";
@@ -64,7 +64,7 @@ function Home() {
             })}
           </tbody>
         </table>
-        <div>
+        <AddButtonsContainer>
           <AdicionarColaboradorButton
             type="button"
             name="AdicionarColaborador"
@@ -75,7 +75,7 @@ function Home() {
             name="AdicionarCafe"
             value="Adicionar Café da Manhã"
           ></AdicionarOpcaoCafeManhaButton>
-        </div>
+        </AddButtonsContainer>
       </div>
     </Container>
   );
