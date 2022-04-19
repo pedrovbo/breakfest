@@ -10,3 +10,7 @@ body {
   color: rgb(80, 46, 46);
   padding: 2rem;
 }
+
+button{
+  border: 0;  
+}

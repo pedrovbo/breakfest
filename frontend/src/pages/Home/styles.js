@@ -28,7 +28,4 @@ export const Container = styled.div`
 export const ColaboradorRow = styled.tr`
   
 `
-export const AddButtonsContainer = styled.div`
-  flex-direction: column;
-  margin: 2%;
-`
+
