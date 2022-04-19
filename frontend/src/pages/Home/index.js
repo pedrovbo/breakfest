@@ -1,6 +1,12 @@
 import React from "react";
 import { Container, ColaboradorRow } from "./styles";
+import { RemoveButton } from "../../components/buttonRemover";
 import { useState, useEffect } from "react";
+import { EditarButton } from "../../components/buttonEditar";
+import {
+  AdicionarColaboradorButton,
+  AdicionarOpcaoCafeManhaButton,
+} from "../../components/buttonAdicionar";
 
 function Home() {
   const [colaboradores, setColaboradores] = useState([]);
@@ -32,17 +38,44 @@ function Home() {
                   <td>{colaborador.id}</td>
                   <td>{colaborador.nome}</td>
                   <td>{colaborador.cpf}</td>
-                  {colaborador.opcaoCafeManha.map((opcao)=> {
-                      return(
-                        <td key={opcao.id}>{opcao.item}</td>
-                      )
-                  })
-                      }
+                  {colaborador.opcaoCafeManha.map((opcao) => {
+                    return <td key={opcao.id}>{opcao.item}</td>;
+                  })}
+                  <td>
+                    <span>
+                      <EditarButton
+                        type="button"
+                        name="Editar"
+                        value="Editar"
+                      />
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      <RemoveButton
+                        type="button"
+                        name="Remover"
+                        value="Remover"
+                      />
+                    </span>
+                  </td>
                 </ColaboradorRow>
               );
             })}
           </tbody>
         </table>
+        <div>
+          <AdicionarColaboradorButton
+            type="button"
+            name="AdicionarColaborador"
+            value="Adicionar Colaborador"
+          ></AdicionarColaboradorButton>
+          <AdicionarOpcaoCafeManhaButton
+            type="button"
+            name="AdicionarCafe"
+            value="Adicionar Café da Manhã"
+          ></AdicionarOpcaoCafeManhaButton>
+        </div>
       </div>
     </Container>
   );
