@@ -3,30 +3,26 @@ import { Container, ColaboradorRow } from "./styles";
 import { useState, useEffect } from "react";
 
 function Home() {
-  /* const colaboradores = [
-    
-  ]; */
-
-  const [colaboradores, setColaboradores] = useState([]) 
+  const [colaboradores, setColaboradores] = useState([]);
 
   useEffect(() => {
-    fetch('https://breakfest.herokuapp.com/colaborador')
-    .then(response => response.json())
-    .then(data => console.log(data))
-  }, [])
+    fetch("http://localhost:8080/colaborador")
+      .then((response) => response.json())
+      .then((data) => setColaboradores(data));
+  }, []);
 
   return (
     <Container>
-      <h1>Breakfest</h1>
+      <h1>Breakfast</h1>
       <h3>Lista de Colaboradores</h3>
       <div id="table-container">
         <table className="table table-striped">
           <thead>
             <tr>
-              <td > Id</td>
-              <td > Nome</td>
-              <td > CPF</td>
-              <td > Opção Café da Manhã</td>
+              <td> Id</td>
+              <td> Nome</td>
+              <td> CPF</td>
+              <td> Opção Café da Manhã</td>
             </tr>
           </thead>
           <tbody>
@@ -36,7 +32,12 @@ function Home() {
                   <td>{colaborador.id}</td>
                   <td>{colaborador.nome}</td>
                   <td>{colaborador.cpf}</td>
-                  <td>{colaborador.opcaoCafeManha}</td>
+                  {colaborador.opcaoCafeManha.map((opcao)=> {
+                      return(
+                        <td key={opcao.id}>{opcao.item}</td>
+                      )
+                  })
+                      }
                 </ColaboradorRow>
               );
             })}
